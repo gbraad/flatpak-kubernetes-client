@@ -1,0 +1,9 @@
+[Application]
+name=nl.gbraad.KubernetesClient
+runtime=org.freedesktop.Platform/x86_64/1.4
+sdk=org.freedesktop.Sdk/x86_64/1.4
+command=kubectl
+
+[Context]
+shared=network;
+filesystems=home;

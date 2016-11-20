@@ -1,0 +1,23 @@
+stages:
+  - build
+  - publish
+
+build:
+  image: registry.gitlab.com/gbraad/flatpak-builder-freedesktop
+  stage: build
+  script:
+    - dnf install -y curl
+    - mkdir -p public
+    - ./build.sh
+    - mv repo ./public
+    - mv *.flatpak ./public
+  artifacts:
+    paths:
+      - public
+
+pages:
+  image: docker:git
+  stage: publish
+  artifacts:
+    paths:
+      - public
